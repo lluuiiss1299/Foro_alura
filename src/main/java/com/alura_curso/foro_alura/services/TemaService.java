@@ -35,7 +35,7 @@ public class TemaService implements iTemaService {
     public List<TemaDto> findAll() {
         List<Tema>temas = temaRepository.findAll();
         return temas.stream()
-                .map(tema -> manejoRespuestaCliente(tema, true))// Transforma cada Tema a TemaDto reducido
+                .map(tema -> manejoRespuestaCliente(tema, true))
                 .collect(Collectors.toList());
     }
 
@@ -68,10 +68,6 @@ public class TemaService implements iTemaService {
 
         Tema tema = new ModelMapper().map(temaDto, Tema.class);
         try {
-//            Tema tema = new Tema();
-//            tema.setTitulo(temaDto.getTitulo());
-//            tema.setMensaje(temaDto.getMensaje());
-//            tema.setGenero(temaDto.getGenero());
             tema.setCreatedAt(LocalDateTime.now());
             tema.setUsuarioId(usuario);
             tema.setActivo(Boolean.TRUE);

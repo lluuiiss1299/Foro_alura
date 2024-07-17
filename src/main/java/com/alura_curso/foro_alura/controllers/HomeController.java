@@ -57,7 +57,7 @@ public class HomeController implements iHomeService {
         }
     }
 
-    @GetMapping("/last-temas")
+    @GetMapping("/temas")
     List<TemaDto> getLastTemas(){
         List<Tema> temas =temaRepository.findTop9ByOrderByCreatedAtDesc();
 
